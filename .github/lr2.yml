@@ -79,7 +79,7 @@ jobs:
         echo "TAG=${GITHUB_SHA::7}" | tee -a $GITHUB_ENV
     
     
-    - name: shell command  
+    - name: shell command - show files 
       run: |
         du -a 
  
