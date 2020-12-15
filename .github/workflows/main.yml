@@ -35,9 +35,11 @@ jobs:
     
     - name: shell command - show files 
       run: |
-        echo ${TAG}
-        echo ${APP_PORT}
-        du -a 
+        pwd
+        echo Testing buildah
+        /usr/bin/buildah bud -f Dockerfile --format docker -t testimage:latest  testimage
+        echo Done Testing buildah 
+        ls -al 
  
  
  
