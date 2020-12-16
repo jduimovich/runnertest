@@ -1,14 +1,11 @@
 name: LocalRunnerTest
  
 env:  
-
   # ⬇️ EDIT with the port your application should be accessible on.
   APP_PORT: 8080 
-
   # If you wish to manually provide the APP_NAME and TAG, set them here, otherwise they will be auto-detected.
   APP_NAME: ""
   TAG: ""
-
 on:
   # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
   push:
