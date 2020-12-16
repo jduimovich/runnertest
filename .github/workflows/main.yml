@@ -1,18 +1,17 @@
 name: LocalRunnerTest
  
 env:   
-  # If you wish to manually provide the APP_NAME and TAG, set them here, otherwise they will be auto-detected.
+  # Optionally provide the APP_NAME and TAG, or they will be auto-computed.
   APP_NAME: ""
-  TAG: ""
+  TAG: "latest"
 on:
   # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
   push:
     # Edit to the branch(es) you want to build and deploy on each push.
     branches: [ main ]
-
 jobs:
   test-shell:
-    name: TEST SHELL
+    name: Base RH Image CLI Workflows
     runs-on: self-hosted 
     steps:
     - uses: actions/checkout@v2
@@ -27,10 +26,13 @@ jobs:
     - name: shell command - show files 
       run: |
         pwd
-        echo Testing buildah
-        /usr/bin/buildah bud -f Dockerfile --format docker -t $APP_NAME:$TAG  $APP_NAME
-        echo Done Testing buildah 
+        echo Files  
         ls -al 
+    - name: shell command - run buildah 
+      run: | 
+        echo Running buildah
+        /usr/bin/buildah bud -f Dockerfile --format docker -t $APP_NAME:$TAG  $APP_NAME
+        echo Done Running buildah  
  
  
  
