@@ -26,13 +26,16 @@ jobs:
     - name: shell command - show files 
       run: |
         pwd
-        echo Files  
+        echo Files in root dev
         ls -al 
     - name: shell command - run buildah 
       run: | 
-        echo Running buildah normal
+        echo Running buildah via sudo buildah bud
         sudo buildah bud
         echo Done Running buildah  
+    - name: shell command - post buildah 
+      run: |  
+        ls -al 
  
  
  
