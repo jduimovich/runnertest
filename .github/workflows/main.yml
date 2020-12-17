@@ -31,7 +31,7 @@ jobs:
     - name: shell command - run buildah 
       run: | 
         echo Running buildah normal
-        /usr/bin/buildah bud -f Dockerfile --format docker -t $APP_NAME:$TAG  $APP_NAME
+        sudo /usr/bin/buildah bud -f Dockerfile --format docker -t $APP_NAME:$TAG  $APP_NAME
         echo Done Running buildah  
  
  
