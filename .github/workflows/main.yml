@@ -23,7 +23,7 @@ jobs:
         echo Done Running buildah  
     - name: shell command - post buildah 
       run: |  
-        ls -al 
+       dir
  
  
  
