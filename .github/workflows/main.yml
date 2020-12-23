@@ -14,16 +14,11 @@ jobs:
     name: Base RH Image CLI Workflows
     runs-on: self-hosted 
     steps:
-    - uses: actions/checkout@v2
-    - name: shell command - show files 
-      run: |
-        pwd
-        echo Files in root dev
-        ls -al 
+    - uses: actions/checkout@v2 
     - name: shell command - run buildah 
       run: | 
         echo Running CRC on local runner test
-        f:\bin\localcrc.bat
+        oc login -u kubeadmin -p HqC3I-wgtiB-q7qCf-KEsuK https://api.crc.testing:6443
         oc get nodes
         echo Done Running buildah  
     - name: shell command - post buildah 
