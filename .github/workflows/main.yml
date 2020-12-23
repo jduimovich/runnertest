@@ -25,7 +25,7 @@ jobs:
     - name: Login CRC 
       run: | 
         echo Login CRC 
-        for /f "tokens=2* delims='" %%a in ('crc console --credentials') do call %%a  
+        login-crc
         oc get nodes 
     - name: Stop CRC
       run: |  
