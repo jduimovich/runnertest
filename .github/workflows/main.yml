@@ -16,6 +16,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2 
     - name: Install CRC 
+      run: | 
         echo Installing CRC on local runner enabled scripts 
         echo Do this manually  
     - name: Start CRC 
