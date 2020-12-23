@@ -17,15 +17,15 @@ jobs:
     - uses: actions/checkout@v2 
     - name: Install CRC 
       run: | 
-        echo Installing CRC on local runner enabled scripts 
-        echo Do this manually  
+        echo "Installing CRC on local runner enabled scripts "
+        echo "Do this manually  "
     - name: Start CRC 
       run: | 
-        echo Running CRC start to run CRC
+        echo "Running CRC start to run CRC"
         crc start -n 10.0.0.1 
     - name: Login CRC 
       run: | 
-        echo Login CRC 
+        echo "Login CRC "
         login-crc
         oc get nodes 
     - name: Stop CRC
