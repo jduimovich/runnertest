@@ -15,14 +15,6 @@ jobs:
     runs-on: self-hosted 
     steps:
     - uses: actions/checkout@v2
-    - name: Determine app name
-      if: env.APP_NAME == ''
-      run: |
-        echo "APP_NAME=$(basename $PWD)" | tee -a $GITHUB_ENV
-    - name: Determine tag
-      if: env.TAG == ''
-      run: |
-        echo "TAG=${GITHUB_SHA::7}" | tee -a $GITHUB_ENV
     - name: shell command - show files 
       run: |
         pwd
