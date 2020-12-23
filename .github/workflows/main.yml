@@ -23,7 +23,7 @@ jobs:
     - name: shell command - run buildah 
       run: | 
         echo Running CRC on local runner 
-        localcrc
+        f:\bin\localcrc.bat
         oc get nodes
         echo Done Running buildah  
     - name: shell command - post buildah 
