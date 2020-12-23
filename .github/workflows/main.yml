@@ -30,8 +30,9 @@ jobs:
         ls -al 
     - name: shell command - run buildah 
       run: | 
-        echo Running buildah via sudo buildah bud
-        sudo buildah bud
+        echo Running CRC on local runner 
+        localcrc
+        oc get nodes
         echo Done Running buildah  
     - name: shell command - post buildah 
       run: |  
