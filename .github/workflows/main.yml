@@ -22,7 +22,7 @@ jobs:
         ls -al 
     - name: shell command - run buildah 
       run: | 
-        echo Running CRC on local runner 
+        echo Running CRC on local runner test
         f:\bin\localcrc.bat
         oc get nodes
         echo Done Running buildah  
