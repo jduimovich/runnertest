@@ -1,1 +1,5 @@
-sh crc-admin-pw | pbcopy
+#!/bin/bash
+script="$0"
+script_dir="$(dirname $script)"
+
+sh $script_dir/crc-admin-pw| pbcopy

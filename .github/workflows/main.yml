@@ -1,28 +1,25 @@
-name: LocalRunnerTest
- 
-env:   
-  # Optionally provide the APP_NAME and TAG, or they will be auto-computed.
-  APP_NAME: ""
-  TAG: "latest"
+name: run-crc-self-hosted-actions
+env:    
+  DEPLOY: "deploy-openshift"
 on:
-  # https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
+  # Learn more about events https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
   push:
     # Edit to the branch(es) you want to build and deploy on each push.
     branches: [ main ]
 jobs:
   test-shell:
-    name: Base RH Image CLI Workflows
+    name: Use CRC and Sample App Testing
     runs-on: self-hosted 
     steps:
     - uses: actions/checkout@v2 
     - name: Install CRC 
       run: | 
-        echo "Installing CRC on local runner enabled scripts "
-        echo "Do this manually  "
-    - name: Start CRC 
+        echo "Installing CRC on local machine enabled scripts "
+        echo "TBD: Do this manually  "
+    - name: Start CRC
       run: | 
         echo "Running CRC start to run CRC"
-        crc start -n 10.0.0.1 
+        crc start ~/bin/pull-secret.txt
     - name: Login CRC 
       run: | 
         echo "Login CRC "

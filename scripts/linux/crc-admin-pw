@@ -1,5 +1,6 @@
-
+#!/bin/bash
 PWQ=$(crc console --credentials -o json | jq .clusterConfig.adminCredentials.password)
 PWQ="${PWQ%\"}"
 PW="${PWQ#\"}"
+PW=${PW//$'\r'}
 echo $PW 
