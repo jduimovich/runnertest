@@ -14,29 +14,23 @@ jobs:
     name: Base RH Image CLI Workflows
     runs-on: self-hosted 
     steps:
-    - uses: actions/checkout@v2
-    - name: Determine app name
-      if: env.APP_NAME == ''
-      run: |
-        echo "APP_NAME=$(basename $PWD)" | tee -a $GITHUB_ENV
-    - name: Determine tag
-      if: env.TAG == ''
-      run: |
-        echo "TAG=${GITHUB_SHA::7}" | tee -a $GITHUB_ENV
-    - name: shell command - show files 
-      run: |
-        pwd
-        echo Files in root dev
-        ls -al 
-    - name: shell command - run buildah 
+    - uses: actions/checkout@v2 
+    - name: Install CRC 
       run: | 
-        echo Running buildah via sudo buildah bud
-        sudo buildah bud
-        echo Done Running buildah  
-    - name: shell command - post buildah 
+        echo "Installing CRC on local runner enabled scripts "
+        echo "Do this manually  "
+    - name: Start CRC 
+      run: | 
+        echo "Running CRC start to run CRC"
+        crc start -n 10.0.0.1 
+    - name: Login CRC 
+      run: | 
+        echo "Login CRC "
+        login-crc
+        oc get nodes 
+    - name: Stop CRC
       run: |  
-        ls -al 
- 
+        crc stop
  
  
  
