@@ -12,6 +12,10 @@ jobs:
     runs-on: self-hosted 
     steps:
     - uses: actions/checkout@v2  
+    - name: Install oc using redhat-actions/oc-installer
+      uses: redhat-actions/oc-installer@v1
+      with:
+        version: '4.6'
     - name: Registry login 
       run: |  
         docker login -u $DOCKER_USER -p $DOCKER_PW
@@ -19,31 +23,24 @@ jobs:
       run: | 
         cd graphtuitous 
         bash lbuild push
+        cd .. 
+    - name: Update Deployment to Latest Image
+      run: | 
         bash update-yaml 
         cat deploy/deployment.yaml
         cat deploy/service.yaml
         cat deploy/route.yaml
-        cd ..
-    - name: 
-      run: | 
-        ls -al graphtuitous 
-    - name: Install oc using redhat-actions/oc-installer
-      uses: redhat-actions/oc-installer@v1
-      with:
-        version: '4.6'
+        cd .. 
     - name: Setup CRC 
       run: | 
         echo "Setup CRC on local machine using crc-scripts "
         echo "TBD: This was done manually for now  "
-    - name: Start CRC
+    - name: Start and Login to CRC
       run: | 
         echo "Starting CRC - scripts/linux/crc-start"
         sh scripts/linux/crc-start
-    - name: Login CRC 
-      run: | 
-        echo "Login CRC scripts/linux/crc-login"
-        sh scripts/linux/crc-login
-    - name: Test OC
+        sh scripts/linux/crc-login 
+    - name: Test if CRC Running ?
       run: |  
         oc get nodes        
     - name: Deploy Sample App
@@ -53,7 +50,8 @@ jobs:
         cd ..
     - name: Stop CRC
       run: |  
-        echo NOOP sh scripts/linux/crc-stop
+        echo Demo disabled stopping 
+        echo sh scripts/linux/crc-stop
 
  
  
