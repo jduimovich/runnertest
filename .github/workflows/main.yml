@@ -15,7 +15,7 @@ jobs:
     - name: Registry login 
       run: |  
         docker login -u $DOCKER_USER -p $DOCKER_PW
-      - name: Local Build of App
+    - name: Local Build of App
       run: | 
         cd graphtuitous 
         bash lbuild push
