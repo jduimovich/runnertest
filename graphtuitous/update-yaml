@@ -1,9 +1,9 @@
 
 source env-vars 
 echo Deploy being updated to $FULL_CONTAINER_SPEC
-echo Service being updated to $SERVICE_NAME
 
 SERVICE_NAME=$CONTAINER_BASE-service
+echo Service being updated to $SERVICE_NAME
 
 yq w -i deploy/service.yaml metadata.name $SERVICE_NAME
 yq w -i deploy/service.yaml metadata.labels.app $SERVICE_NAME
