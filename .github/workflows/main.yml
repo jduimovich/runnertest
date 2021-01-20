@@ -20,9 +20,9 @@ jobs:
         cd graphtuitous 
         bash lbuild push
         bash update-yaml 
-        cat deploy/deployment.html
-        cat deploy/service.html
-        cat deploy/route.html
+        cat deploy/deployment.yaml
+        cat deploy/service.yaml
+        cat deploy/route.yaml
         cd ..
     - name: 
       run: | 
