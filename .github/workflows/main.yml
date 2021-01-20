@@ -43,7 +43,8 @@ jobs:
         oc apply -f deploy-openshift
     - name: Stop CRC
       run: |  
-      echo NOOP sh scripts/linux/crc-stop
+        echo NOOP sh scripts/linux/crc-stop
+
  
  
  
