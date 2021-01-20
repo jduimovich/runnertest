@@ -1,6 +1,6 @@
 name: run-crc-self-hosted-actions
 env:    
-  DEPLOY: "deploy-openshift"
+  DEPLOY: "Use CRC in a Workflow"
 on:
   # Learn more about events https://docs.github.com/en/free-pro-team@latest/actions/reference/events-that-trigger-workflows
   push:
