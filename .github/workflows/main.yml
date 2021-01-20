@@ -16,7 +16,13 @@ jobs:
       with:
         repository: 'jduimovich/graphtuitous'
         path: 'graphtuitous'    
-    - name: Show me 
+    - name: Local Build of App
+      run: | 
+        cd graphtuitous
+        docker login -u $DOCKER_USER -p $DOCKER_PW
+        bash lbuild push
+        bash update-yaml 
+    - name: 
       run: | 
         du -a graphtuitous 
     - name: Install oc using redhat-actions/oc-installer
@@ -37,10 +43,11 @@ jobs:
         sh scripts/linux/crc-login
     - name: Test OC
       run: |  
-        oc get nodes
+        oc get nodes        
     - name: Deploy Sample App
       run: |  
-        oc apply -f deploy-openshift
+        cd graphtuitous
+        oc apply -f deploy
     - name: Stop CRC
       run: |  
         echo NOOP sh scripts/linux/crc-stop
