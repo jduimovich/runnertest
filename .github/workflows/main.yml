@@ -22,10 +22,7 @@ jobs:
     - name: Local Build of App
       run: | 
         cd graphtuitous 
-        bash lbuild push
-        cd .. 
-    - name: Update Deployment to Latest Image
-      run: | 
+        bash lbuild push 
         bash update-yaml 
         cat deploy/deployment.yaml
         cat deploy/service.yaml
