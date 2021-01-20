@@ -39,7 +39,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          file: deploy/deployment.yaml    
+          file: graphtuitous/deploy/deployment.yaml    
       - name: Upload Scan Results  
         uses: actions/upload-artifact@v2
         with: 
