@@ -20,9 +20,13 @@ jobs:
         cd graphtuitous 
         bash lbuild push
         bash update-yaml 
+        cat deploy/deployment.html
+        cat deploy/service.html
+        cat deploy/route.html
+        cd ..
     - name: 
       run: | 
-        du -a graphtuitous 
+        ls -al graphtuitous 
     - name: Install oc using redhat-actions/oc-installer
       uses: redhat-actions/oc-installer@v1
       with:
@@ -46,6 +50,7 @@ jobs:
       run: |  
         cd graphtuitous
         oc apply -f deploy
+        cd ..
     - name: Stop CRC
       run: |  
         echo NOOP sh scripts/linux/crc-stop
