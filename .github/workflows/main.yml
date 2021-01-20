@@ -11,11 +11,7 @@ jobs:
     name: Use CRC and Sample App Testing
     runs-on: self-hosted 
     steps:
-    - uses: actions/checkout@v2 
-    - uses: actions/checkout@v2 
-      with:
-        repository: 'jduimovich/graphtuitous'
-        path: 'graphtuitous'    
+    - uses: actions/checkout@v2  
     - name: Local Build of App
       run: | 
         cd graphtuitous
