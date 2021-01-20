@@ -23,11 +23,11 @@ jobs:
     - name: Start CRC
       run: | 
         echo "Starting CRC"
-        sh scripts/crc-start
+        sh scripts/linux/crc-start
     - name: Login CRC 
       run: | 
         echo "Login CRC "
-        crc-login
+        sh scripts/linux/crc-login
     - name: Test OC
       run: |  
         oc get nodes
@@ -36,7 +36,7 @@ jobs:
         oc apply -f deploy-openshift
     - name: Stop CRC
       run: |  
-        crc stop
+        sh scripts/linux/crc-stop
  
  
  
